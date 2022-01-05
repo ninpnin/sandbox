@@ -19,7 +19,8 @@ function sandbox
   end
   cd "$HOME/.sandbox"
   if test (count "$HOME/.sandbox/"*) -gt 0
-    echo "The sandbox is not empty."
+    echo "The sandbox is not empty:"
+    ls -lh "$HOME/.sandbox"
     echo "Its contents will be deleted."
     if read_confirm
       for file in "$HOME/.sandbox/"*;
