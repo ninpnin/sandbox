@@ -1,9 +1,9 @@
 # Go to sandbox-folder and empty it
 function sandbox
   # Helper function for confirmations
-  function read_confirm
+  function confirm_deletion
     while true
-      read -l -P 'Do you want to continue? [y/N] ' confirm
+      read -l -P 'Do you want to delete the files? [y/N] ' confirm
 
       switch $confirm
         case Y y
@@ -22,7 +22,7 @@ function sandbox
     echo "The sandbox is not empty:"
     ls -lh "$HOME/.sandbox"
     echo "Its contents will be deleted."
-    if read_confirm
+    if confirm_deletion
       for file in "$HOME/.sandbox/"*;
         echo "Removing... $file";
         rm -r $file;
